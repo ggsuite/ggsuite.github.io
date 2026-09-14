@@ -1,47 +1,195 @@
-/* Adapts the gg content to the visual foundation of ggdna.github.io.
-   Nocturne tokens and components come from the same _ds stylesheet. */
-body { margin:0; background:var(--color-bg); color:var(--color-text); font-family:var(--font-body); }
-h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:500 !important; }
-h1 { font-size:62px !important; line-height:1.04 !important; letter-spacing:-.02em !important; }
-h2 { font-size:38px !important; letter-spacing:-.01em !important; }
-a { text-decoration:none; }
-a:hover { color:var(--color-accent-300); }
-:focus-visible { outline:2px solid var(--color-accent); outline-offset:4px; }
-.wrap { max-width:none; margin:0; padding-inline:56px; }
-header .top { display:flex; justify-content:space-between; gap:24px; }
-header .brand { display:flex; align-items:center; gap:12px; color:var(--color-text); text-decoration:none; }
-header .pill { font-size:12px; border:1px solid #3f424d; border-radius:999px; }
-header nav { display:flex; align-items:center; flex-wrap:wrap; font-size:14px; }
-header .langs { display:flex; align-items:center; gap:2px; border:1px solid #3f424d; border-radius:8px; padding:3px; }
-header .langs button { border:0; font:inherit; cursor:pointer; }
-/* Header matches the ggdna landing page. */
-header { border-bottom:1px solid rgba(233,233,237,.1); line-height:1.55; }
-header .top { max-width:none; padding:20px 56px; align-items:center; }
-header .brand { font-size:15px; font-weight:500; letter-spacing:.01em; flex-shrink:0; }
-header .brand svg { width:22px; height:22px; }
-header .pill { color:#75798c; padding:2px 8px; font-weight:400; letter-spacing:normal; }
-header nav { gap:10px 20px; color:#b2b6ca; white-space:nowrap; }
-header nav > a { color:#b2b6ca; }
-header nav .nav-github { border:1px solid #9184d9; color:#b5abfc; border-radius:8px; padding:7px 14px; }
-header .langs { font-size:13px; }
-header .langs button { border-radius:6px; padding:5px 11px; }
-  .nav-dd { position: relative; }
-  .nav-dd-btn { border: 0; background: transparent; color: #b2b6ca; font: inherit; cursor: pointer; padding: 0; display: flex; align-items: center; gap: 6px; }
-  .nav-dd-btn:hover { color: #d2cefd; }
-  .nav-dd-caret { font-size: 10px; color: #75798c; }
-  .nav-dd-panel { position: absolute; top: 100%; right: -12px; padding-top: 12px; display: none; z-index: 20; }
-  .nav-dd:hover .nav-dd-panel, .nav-dd:focus-within .nav-dd-panel { display: block; }
-  .nav-dd-box { display: flex; flex-direction: column; background: #232532; border: 1px solid #3f424d; border-radius: 8px; padding: 6px; min-width: 190px; box-shadow: 0 16px 38px rgba(0,0,0,.45); }
-  .nav-dd-box a { color: #b2b6ca; font-size: 14px; padding: 9px 14px; border-radius: 6px; white-space: nowrap; }
-  .nav-dd-box a:hover { background: rgba(145,132,217,.14); color: #d2cefd; }
-@media(max-width:760px) { header .top { padding-inline:24px; } }
-@media(max-width:420px) { header .top { padding-inline:16px; } }
+/* The visual rules below mirror ggdna.github.io. Product-specific diagrams
+   and copy keep their own structure, while the shared page grammar stays
+   identical: typography, header, section bands, cards, spacing and controls. */
+body {
+  margin: 0;
+  background: #161826;
+  color: #e9e9ed;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+a { color: #b5abfc; text-decoration: none; }
+a:hover { color: #d2cefd; }
+:focus-visible { outline: 2px solid #9184d9; outline-offset: 4px; }
+
+.site-header { line-height: 1.55; }
+.site-header nav { line-height: 1.55; }
+.site-header .langs { line-height: 1.55; }
+
+.nav-dd { position: relative; }
+.nav-dd-btn {
+  border: 0;
+  background: transparent;
+  color: #b2b6ca;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-dd-btn:hover { color: #d2cefd; }
+.nav-dd-caret { font-size: 10px; color: #75798c; }
+.nav-dd-panel {
+  position: absolute;
+  top: 100%;
+  right: -12px;
+  padding-top: 12px;
+  display: none;
+  z-index: 20;
+}
+.nav-dd:hover .nav-dd-panel,
+.nav-dd:focus-within .nav-dd-panel { display: block; }
+.nav-dd-box {
+  display: flex;
+  flex-direction: column;
+  background: #232532;
+  border: 1px solid #3f424d;
+  border-radius: 8px;
+  padding: 6px;
+  min-width: 190px;
+  box-shadow: 0 16px 38px rgba(0,0,0,.45);
+}
+.nav-dd-box a {
+  color: #b2b6ca;
+  font-size: 14px;
+  padding: 9px 14px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.nav-dd-box a:hover { background: rgba(145,132,217,.14); color: #d2cefd; }
+
+main { background: radial-gradient(1200px 620px at 78% -8%, #232532 0%, #161826 62%); }
+section {
+  padding: 76px 56px 84px;
+  border-top: 1px solid #3f424d;
+  border-bottom: 1px solid #3f424d;
+}
+section > .wrap { max-width: 1240px; margin: 0; padding: 0; }
+
+.hero {
+  padding: 92px 56px 76px;
+  border-top: 0;
+  background: transparent;
+}
+.hero > .wrap { max-width: 1440px; }
+.hero-grid {
+  grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
+  gap: 56px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 62px;
+  line-height: 1.04;
+  font-weight: 500;
+  margin: 0 0 24px;
+  letter-spacing: -.02em;
+}
+.hero p {
+  max-width: 540px;
+  margin: 0 0 20px;
+  color: #b2b6ca;
+  font-size: 19px;
+  line-height: 1.6;
+}
+.hero figure {
+  position: relative;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero figure svg { width: 100%; height: 225px; }
+.hero figcaption { margin-top: 10px; }
+.hero .legend { margin-top: 8px; }
+
+h2 {
+  color: #e9e9ed;
+  font-size: 38px;
+  line-height: 1.12;
+  font-weight: 500;
+  margin: 0 0 14px;
+  letter-spacing: -.01em;
+}
+.lead {
+  max-width: 700px;
+  margin: 0 0 40px;
+  color: #9397ab;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.band {
+  background: linear-gradient(180deg, #262a60, #1d2050);
+  border-color: #4c5397;
+}
+.band h2 { color: #f3f5fe; }
+.band .lead { color: #b5afe8; }
+
+.grid { gap: 18px; }
+.card {
+  background: #232532;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #3f424d;
+  padding: 22px 24px;
+}
+.band .card {
+  background: rgba(22,24,38,.5);
+  border: 0;
+  box-shadow: 0 0 0 1px #4c5397;
+  padding: 24px 22px 26px;
+}
+.card h3 {
+  color: #e9e9ed;
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+.band .card h3 { color: #f3f5fe; }
+.card p { color: #9397ab; font-size: 14.5px; line-height: 1.6; }
+.band .card p { color: #b5afe8; }
+
+.codebox {
+  background: #232532;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #3f424d;
+}
+.band .codebox {
+  background: rgba(22,24,38,.5);
+  box-shadow: 0 0 0 1px #4c5397;
+}
+.table-scroll {
+  background: rgba(22,24,38,.5);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #4c5397;
+}
+.actions .btn { border-radius: 8px; }
+
+footer { padding: 30px 56px; }
+footer > .wrap { max-width: none; margin: 0; padding: 0; }
+
+@media(max-width:1000px) {
+  .site-header { align-items: flex-start !important; }
+  .site-header nav { justify-content: flex-end; gap: 10px 16px !important; }
+}
 
 @media(max-width:760px) {
- .wrap { padding-inline:24px; }
- header .top { flex-wrap:wrap; }
- header nav { justify-content:flex-start; }
- h1 { font-size:44px !important; }
- h2 { font-size:28px !important; }
+  .site-header { padding-inline: 24px !important; flex-wrap: wrap; }
+  .site-header nav { justify-content: flex-start; }
+  section, .hero { padding: 52px 24px 58px; }
+  .hero h1 { font-size: 44px; }
+  h2 { font-size: 28px; }
+  .hero-grid { grid-template-columns: minmax(0,1fr); gap: 24px; }
+  .hero figure { max-width: 530px; }
 }
-@media(max-width:420px) { .wrap { padding-inline:16px; } }
+
+@media(max-width:420px) {
+  .site-header { padding-inline: 16px !important; }
+  section, .hero { padding-inline: 16px; }
+}
