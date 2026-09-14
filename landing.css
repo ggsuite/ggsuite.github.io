@@ -7,3 +7,4 @@ section { padding-block:76px; border-top:1px solid var(--color-neutral-800); scr
 @media(max-width:760px) { .wrap { padding-inline:24px; } .top { flex-wrap:wrap; } nav { justify-content:flex-start; } .hero-grid,.grid,.two { grid-template-columns:minmax(0,1fr); } .hero { padding-block:52px; } section { padding-block:52px; } figure { max-width:530px; } .compare-row { grid-template-columns:minmax(0,1fr); gap:10px; } .compare-head { grid-template-columns:1fr 1fr; } .dropdown { right:auto; left:0; } }
 @media(max-width:420px) { .wrap { padding-inline:16px; } .card,.codebox { padding:20px; } nav { gap:10px 14px; } .four { grid-template-columns:minmax(0,1fr); } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .node rect { animation:none; } }
+
