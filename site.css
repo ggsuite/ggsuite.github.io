@@ -1,6 +1,5 @@
-/* Shared verbatim by ggdna.github.io and ggsuite.github.io.
-   Nocturne tokens and components are supplied by _ds/.../styles.css.
-   Keep this file identical in both repositories. */
+/* Adapts the gg content to the visual foundation of ggdna.github.io.
+   Nocturne tokens and components come from the same _ds stylesheet. */
 body { margin:0; background:var(--color-bg); color:var(--color-text); font-family:var(--font-body); }
 h1,h2,h3,h4 { font-family:var(--font-heading); font-weight:500 !important; }
 h1 { font-size:62px !important; line-height:1.04 !important; letter-spacing:-.02em !important; }
